@@ -53,7 +53,7 @@ const Hero = () => {
                   isDarkMode ? "text-light" : "text-muted"
                 }`}
                 style={{ opacity: isDarkMode ? 0.8 : 1 }}>
-                Frontend Developer
+                Front-end Developer
               </motion.h2>
 
               <motion.p variants={itemVariants} className="lead mb-5">
