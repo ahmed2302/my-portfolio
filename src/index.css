@@ -1,13 +1,183 @@
+/* Import Bootstrap CSS */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Custom styles */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --dark-bg: #121212;
+  --dark-text: #ffffff;
+  --light-bg: #f5f6f7;
+  --light-text: #6c757d;
+  --section-spacing: 5rem;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] {
+  --bg-color: var(--dark-bg);
+  --text-color: var(--dark-text);
+  --card-bg: #1e1e1e;
+  --border-color: #2d2d2d;
+}
+
+/* Light mode styles */
+[data-theme="light"] {
+  --bg-color: var(--light-bg);
+  --text-color: var(--light-text);
+  --card-bg: #fafbfc;
+  --border-color: #e2e6ea;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Section spacing */
+section {
+  padding: var(--section-spacing) 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Card styles */
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Button styles */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  opacity: 0.9;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  opacity: 1;
+}
+
+/* Form styles */
+.form-control {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.form-control:focus {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.1);
+}
+
+/* Progress bar styles */
+.progress {
+  background-color: var(--border-color);
+}
+
+/* Badge styles */
+.badge {
+  font-weight: 500;
+  padding: 0.5em 0.8em;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --section-spacing: 3rem;
+  }
+
+  section {
+    padding: var(--section-spacing) 1rem;
+  }
+}
+
+/* Utility classes */
+.text-gradient {
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
 }
