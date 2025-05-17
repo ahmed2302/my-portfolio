@@ -23,8 +23,8 @@ const projectsData = [
       "A full-stack e-commerce solution with comprehensive admin features, built with React and Laravel. Features secure authentication, advanced product management, and real-time order tracking.",
     image: "images/ecommerce.png",
     tags: ["React", "Laravel", "MySQL", "REST API", "React Hooks"],
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
-    liveUrl: "https://your-ecommerce-demo.com",
+    githubUrl: "https://github.com/ahmed2302/e-commerce.git",
+    liveUrl: "https://e-commerce-232.netlify.app/",
     category: "fullstack",
     features: [
       "Secure user authentication and authorization",
@@ -48,8 +48,8 @@ const projectsData = [
       "Context API",
       "Responsive Design",
     ],
-    githubUrl: "https://github.com/yourusername/portfolio",
-    // liveUrl: "https://your-portfolio.com",
+    githubUrl: "https://github.com/ahmed2302/my-portfolio.git",
+    // liveUrl: "https://portfolio-ahmed-hamdy.netlify.app/",
     category: "frontend",
     features: [
       "Responsive and modern design",

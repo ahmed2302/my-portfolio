@@ -1,6 +1,7 @@
 // React and third-party imports
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { AnimatePresence } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Context providers
@@ -14,6 +15,8 @@ import About from "./components/about/About";
 import Projects from "./components/projects/Projects";
 import Experience from "./components/experience/Experience";
 import Contact from "./components/contact/Contact";
+import Favicon from "./components/common/Favicon";
+import Loader from "./components/common/Loader";
 
 // Styles
 import "./index.css";
@@ -34,50 +37,76 @@ const seoMetadata = {
  * Renders the portfolio website with all sections and proper SEO metadata
  */
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time (increased to 3 seconds)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3500); // Changed from 1500 to 3000 milliseconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <HelmetProvider>
       <ThemeProvider>
         <div className="App">
-          {/* SEO Metadata */}
-          <Helmet>
-            <title>{seoMetadata.title}</title>
-            <meta name="description" content={seoMetadata.description} />
-            <meta name="keywords" content={seoMetadata.keywords} />
-
-            {/* Open Graph / Facebook */}
-            <meta property="og:title" content={seoMetadata.title} />
-            <meta property="og:description" content={seoMetadata.description} />
-            <meta property="og:type" content="website" />
-            <meta property="og:url" content={seoMetadata.url} />
-            <meta property="og:image" content={seoMetadata.image} />
-
-            {/* Twitter */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={seoMetadata.title} />
-            <meta
-              name="twitter:description"
-              content={seoMetadata.description}
-            />
-            <meta name="twitter:image" content={seoMetadata.image} />
-
-            {/* Canonical URL */}
-            <link rel="canonical" href={seoMetadata.url} />
-          </Helmet>
-
-          {/* Main Navigation */}
-          <Navigation />
+          <Favicon />
+          <AnimatePresence mode="wait">
+            {isLoading && <Loader />}
+          </AnimatePresence>
 
           {/* Main Content */}
-          <main className="main-content">
-            <Hero />
-            <About />
-            <Projects />
-            <Experience />
-            <Contact />
-          </main>
+          <div
+            style={{
+              opacity: isLoading ? 0 : 1,
+              transition: "opacity 0.3s ease",
+            }}>
+            {/* SEO Metadata */}
+            <Helmet>
+              <title>{seoMetadata.title}</title>
+              <meta name="description" content={seoMetadata.description} />
+              <meta name="keywords" content={seoMetadata.keywords} />
 
-          {/* Footer */}
-          <Footer />
+              {/* Open Graph / Facebook */}
+              <meta property="og:title" content={seoMetadata.title} />
+              <meta
+                property="og:description"
+                content={seoMetadata.description}
+              />
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content={seoMetadata.url} />
+              <meta property="og:image" content={seoMetadata.image} />
+
+              {/* Twitter */}
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:title" content={seoMetadata.title} />
+              <meta
+                name="twitter:description"
+                content={seoMetadata.description}
+              />
+              <meta name="twitter:image" content={seoMetadata.image} />
+
+              {/* Canonical URL */}
+              <link rel="canonical" href={seoMetadata.url} />
+            </Helmet>
+
+            {/* Main Navigation */}
+            <Navigation />
+
+            {/* Main Content */}
+            <main className="main-content">
+              <Hero />
+              <About />
+              <Projects />
+              <Experience />
+              <Contact />
+            </main>
+
+            {/* Footer */}
+            <Footer />
+          </div>
         </div>
       </ThemeProvider>
     </HelmetProvider>
