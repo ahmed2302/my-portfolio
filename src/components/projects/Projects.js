@@ -68,7 +68,7 @@ const projectsData = [
     image: "images/tvflix.png",
     tags: ["React", "TMDB API", "React Router", "React Hooks", "CSS3"],
     githubUrl: "https://github.com/ahmed2302/tvflix-movies.git",
-    liveUrl: "https://tvflix-movies.netlify.app/",
+    liveUrl: "https://tvfilx-movies.netlify.app/",
     category: "frontend",
     features: [
       "Browse and search trending content",
@@ -146,7 +146,7 @@ const projectsData = [
       "Responsive Design",
     ],
     githubUrl: "https://github.com/ahmed2302/prayers-timings-react.git",
-    liveUrl: "https://keen-basbousa-76a21e.netlify.app/",
+    liveUrl: "https://prayer-timeing-v02.netlify.app",
     category: "frontend",
     features: [
       "Location-based prayer times",
@@ -321,6 +321,30 @@ const projectsData = [
       "Multiple test durations",
       "Detailed performance statistics",
       "Custom text passages",
+    ],
+  },
+  {
+    id: 17,
+    title: "Loan Request Frontend",
+    description:
+      "A responsive React web application for submitting loan requests. Designed with a clean user interface, form validation, and state management using React Hooks.",
+    image: "images/loan-request.png",
+    tags: [
+      "React",
+      "React Router",
+      "React Hooks",
+      "CSS Modules",
+      "Form Validation",
+    ],
+    githubUrl: "https://github.com/ahmed2302/Loan-Request.git",
+    liveUrl: "https://loan-request-app.netlify.app/",
+    category: "frontend",
+    features: [
+      "Responsive loan request form UI",
+      "Form validation for user input",
+      "Navigation using React Router",
+      "State management with useState and useEffect",
+      "Modular component-based architecture",
     ],
   },
 ];
